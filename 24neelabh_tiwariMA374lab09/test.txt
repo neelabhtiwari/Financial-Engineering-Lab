@@ -1,0 +1,31 @@
+
+clear all;
+clc;
+
+[num] = xlsread('NSEoptiondata.xlsx','29 Dec 11 call');
+[c r] = size(num);
+
+strike(:,1) = num(:,1);
+settle(:,1) = num(:,3);
+
+for i = 1:17
+    maturity(i,1) = 42;
+end
+
+
+settle
+
+[num2] = xlsread('NSEoptiondata.xlsx','30 Jun 11 call');
+[c r] = size(num2);
+
+
+for i = 1:17
+    maturity(i,2) = 36;
+    strike(i,2) = num2(i,1);
+    settle(i,2) = num2(i,3);
+end
+
+plot3(maturity,strike,settle);
+hold all;
+
+settle
